@@ -6,3 +6,11 @@
         </div>
     </div>    
 </div>
+<div style="clear:both"></div>
+<div class="grid grid-pad">
+    <div *ngFor="let person of persons" (click)="gotoPersonDetail(person)" class="col-1-4">
+        <div class="module person">
+            <h4>{{person.name}}</h4>
+        </div>
+    </div>    
+</div>

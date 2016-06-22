@@ -16,9 +16,42 @@ export class CourseService {
     getCourses(): Promise<Course[]> {
         return this.http.get(this.courseUrl)
             .toPromise()
-            .then(function(response) { 
-                return response.json() 
+            .then(function (response) {
+                return response.json()
             })
+            .catch(this.handleError);
+    }
+
+    save(course: Course): Promise<Course> {
+        if (course.id) {
+            return this.put(course);
+        }
+        return this.post(course);
+    }
+
+    private post(course: Course): Promise<Course> {
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+
+        return this.http
+            .post(this.courseUrl, JSON.stringify(course), { headers: headers })
+            .toPromise()
+            .then(res => res.json())
+            .catch(this.handleError);
+    }
+
+    private put(course: Course): Promise<Course> {
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+        });
+
+        let url = `${this.courseUrl}/${course.id}`;
+
+        return this.http
+            .post(url, JSON.stringify(course), { headers: headers })
+            .toPromise()
+            .then(() => course)
             .catch(this.handleError);
     }
 

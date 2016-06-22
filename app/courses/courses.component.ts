@@ -78,7 +78,7 @@ export class CoursesComponent implements OnInit{
   }
 
   onSelect(course: Course) { 
-      this.router.navigate(['courses', course.id]);
+      this.router.navigate(['detail', course.id]);
 
       //this.selectedCourse = course; 
     }
