@@ -33,12 +33,12 @@ export class DashboardComponent implements OnInit {
     }
 
     gotoDetail(course: Course) {
-        let link = ['detail', course.id];
+        let link = ['/detail', course.id];
         this.router.navigate(link);
     }
 
     gotoPersonDetail(person: Person) {
-        let link = ['persondetail', person.id];
+        let link = ['/persondetail', person.id];
         this.router.navigate(link);
     }
 }
