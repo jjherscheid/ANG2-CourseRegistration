@@ -2,3 +2,5 @@
 First version of CourseRegistration
 
 Just a playground for playing with Angular2
+
+hosted by JJHerscheid
